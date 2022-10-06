@@ -20,7 +20,7 @@ function onFormInput(e) {
 
 function onFormSubmit(e) {
   e.preventDefault();
-  if (refs.textarea.textarea === '' || refs.input.value === '') {
+  if (refs.textarea.value === '' || refs.input.value === '') {
     alert('Please make sure all fields are filled in correctly');
   } else {
     e.currentTarget.reset();
@@ -33,7 +33,7 @@ function getDataBase() {
   const getData = localStorage.getItem('feedback-form-state');
   const parsedData = JSON.parse(getData);
   if (parsedData) {
-    refs.input.value = parsedData.input;
-    refs.textarea.value = parsedData.textarea;
+    refs.input.value = parsedData.input || '';
+    refs.textarea.value = parsedData.textarea || '';
   }
 }
